@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import './App.css'; // You can create this CSS file for additional styling
+import './App.css'; 
 
 const App = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState('');
 
+  const isAlpha = (str) => /^[a-zA-Z]+$/.test(str);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (firstName.trim() !== '' && lastName.trim() !== '') {
+ 
+    if (isAlpha(firstName) && isAlpha(lastName)) {
       setFullName(`${firstName} ${lastName}`);
     } else {
-      
-      alert('Please fill in both first and last names.');
+      alert('Please enter valid first and last names.');
     }
   };
 
@@ -21,7 +23,7 @@ const App = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96"
+        className="bg-red-700 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96"
       >
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
