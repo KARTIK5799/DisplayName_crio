@@ -7,22 +7,22 @@ const App = () => {
   const [fullName, setFullName] = useState('');
   const [showWarning, setShowWarning] = useState(false);
 
-  const isAlpha = (str) => /^[a-zA-Z]+$/.test(str);
+  const isValidName = (str) => /^[A-Za-z0-9\s]+$/.test(str);
 
   const handleFirstNameChange = (value) => {
     setFirstName(value);
-    setShowWarning(!isAlpha(value));
+    setShowWarning(!isValidName(value));
   };
 
   const handleLastNameChange = (value) => {
     setLastName(value);
-    setShowWarning(!isAlpha(value));
+    setShowWarning(!isValidName(value));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isAlpha(firstName) && isAlpha(lastName)) {
+    if (isValidName(firstName) && isValidName(lastName)) {
       const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
       const capitalizedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
 
@@ -54,7 +54,6 @@ const App = () => {
             value={firstName}
             onChange={(e) => handleFirstNameChange(e.target.value)}
             required
-            pattern="[A-Za-z]+"
           />
         </div>
         <div className="mb-6">
@@ -71,7 +70,6 @@ const App = () => {
             value={lastName}
             onChange={(e) => handleLastNameChange(e.target.value)}
             required
-            pattern="[A-Za-z]+"
           />
         </div>
         {showWarning && (
