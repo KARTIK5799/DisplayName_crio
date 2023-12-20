@@ -11,7 +11,6 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
- 
     if (isAlpha(firstName) && isAlpha(lastName)) {
       setFullName(`${firstName} ${lastName}`);
     } else {
@@ -20,19 +19,18 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className='font-weight
-       text-5xl'>Full Name Display</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500 text-white">
+      <h1 className="font-bold text-5xl mb-8">Full Name Display</h1>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96"
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-8 w-96"
       >
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
             First Name:
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="input-field"
             id="firstName"
             type="text"
             placeholder="Enter your first name"
@@ -45,7 +43,7 @@ const App = () => {
             Last Name:
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="input-field"
             id="lastName"
             type="text"
             placeholder="Enter your last name"
@@ -55,7 +53,7 @@ const App = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-gradient-to-r from-blue-500 to-purple-500 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Submit
         </button>
@@ -63,8 +61,8 @@ const App = () => {
 
       {fullName && (
         <div className="bg-white shadow-md rounded p-4 mb-4">
-          <h2 className="text-xl font-bold mb-2">Full Name:</h2>
-          <p className="text-gray-800">{fullName}</p>
+          <h2 className="text-xl font-bold mb-2 text-gray-800">Full Name:{fullName}</h2>
+       
         </div>
       )}
     </div>
