@@ -64,7 +64,7 @@ const App = () => {
 
       {fullName && (
         <div className="bg-white shadow-md rounded p-4 mb-4 text-gray-800">
-          <h2 className="text-xl font-bold mb-2">Full Name:{fullName}</h2>
+          <h2 className="text-xl font-bold mb-2">Full Name: {fullName}</h2>
           
         </div>
       )}
