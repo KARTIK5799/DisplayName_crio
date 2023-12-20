@@ -21,9 +21,11 @@ const App = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className='font-weight
+       text-5xl'>Full Name Display</h1>
       <form
         onSubmit={handleSubmit}
-        className="bg-red-700 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96"
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96"
       >
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
