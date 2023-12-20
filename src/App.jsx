@@ -5,32 +5,22 @@ const App = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [fullName, setFullName] = useState('');
-  const [showWarning, setShowWarning] = useState(false);
-
-  const isValidName = (str) => /^[A-Za-z0-9\s]+$/.test(str);
 
   const handleFirstNameChange = (value) => {
     setFirstName(value);
-    setShowWarning(!isValidName(value));
   };
 
   const handleLastNameChange = (value) => {
     setLastName(value);
-    setShowWarning(!isValidName(value));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isValidName(firstName) && isValidName(lastName)) {
-      const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
-      const capitalizedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+    const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    const capitalizedLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
 
-      setFullName(`${capitalizedFirstName} ${capitalizedLastName}`);
-      setShowWarning(false); // Reset the warning state
-    } else {
-      setShowWarning(true);
-    }
+    setFullName(`${capitalizedFirstName} ${capitalizedLastName}`);
   };
 
   return (
@@ -45,9 +35,7 @@ const App = () => {
             First Name:
           </label>
           <input
-            className={`border ${
-              showWarning ? 'border-red-500' : 'border-blue-500'
-            } shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+            className="border border-blue-500 shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="firstName"
             type="text"
             placeholder="Enter your first name"
@@ -61,9 +49,7 @@ const App = () => {
             Last Name:
           </label>
           <input
-            className={`border ${
-              showWarning ? 'border-red-500' : 'border-blue-500'
-            } shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline`}
+            className="border border-blue-500 shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="lastName"
             type="text"
             placeholder="Enter your last name"
@@ -72,9 +58,6 @@ const App = () => {
             required
           />
         </div>
-        {showWarning && (
-          <p className="text-red-500 text-sm mb-4">Please enter valid first and last names.</p>
-        )}
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
